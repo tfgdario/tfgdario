@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/head" />
+
+<body>
+
+	<nav th:replace="fragments/adminNav"></nav>
+
+	<div class="container mensajes3">
+			
+		<h2 th:text="#{censoCargar.message}"></h2>
+		<form method="post" action="/cargarCenso"
+			enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td th:text="#{censoFichero.message}"></td>
+					<td><input type="file" name="file"></td>
+				</tr>
+				<tr>
+
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit"
+						value="Subir fichero"></td>
+				</tr>
+			</table>
+		</form>
+
+		<p th:utext='${msg}'></p>
+		
+		<button type="submit" id="btnVolver"
+			onclick="window.history.go(-1); return false;"
+			class="btn btn-primary" th:text="#{volver.message}">
+		</button>
+
+	</div>
+	
+	<footer th:replace="fragments/footer"></footer>
+</body>
+</html>
