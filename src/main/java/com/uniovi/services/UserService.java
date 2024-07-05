@@ -66,7 +66,7 @@ public class UserService {
 		if (numDoc.length() == 9) {
 
 			String dniRegexp = "\\d{8}[A-HJ-NP-TV-Z]";
-			String nifRegex = "(^[XYZ]\\d{7}[A-Z&&[^IÑOU]])";//"\\[XYZ]{1}{[0-0]7}[A-HJ-NP-TV-Z]";
+			String nifRegex = "(^[XYZ]\\d{7}[A-Z&&[^IÑOU]])";// "\\[XYZ]{1}{[0-0]7}[A-HJ-NP-TV-Z]";
 
 			String[] asignacionLetra = { "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S",
 					"Q", "V", "H", "L", "C", "K", "E" };
@@ -105,9 +105,9 @@ public class UserService {
 				num = Integer.parseInt(auxNum);
 				resto = num % 23;
 				letra = asignacionLetra[resto];
-				
+
 				isValid = Pattern.matches(nifRegex, numDoc) && (letra.equals(numDoc.substring(8).toUpperCase()));
-				
+
 				break;
 
 			default:
@@ -115,7 +115,7 @@ public class UserService {
 				break;
 			}
 		}
-		
+
 		return isValid;
 	}
 
@@ -160,7 +160,7 @@ public class UserService {
 			System.out.println(userAux.getPassword());
 
 			userEmailInfo.setPassword(userAux.getPassword());
-			
+
 			user.setPassword(bCryptPasswordEncoder.encode(userAux.getPassword()));
 			updated = true;
 		}
@@ -222,7 +222,7 @@ public class UserService {
 		if (updated) {
 			userRepository.save(user);
 			emailService.sendChangeUserInfoEmail(userEmailInfo, user.getEmail());
-			
+
 		}
 
 		return updated;
@@ -273,19 +273,19 @@ public class UserService {
 
 			if (filtroInferior <= user.getEdad() && user.getEdad() <= filtroSuperior) {
 
-				User aux = getUserByNumDocumento(user.getNumDocumento());
+				//User aux = getUserByNumDocumento(user.getNumDocumento());
 
-				if (aux == null) {
+				//if (aux == null) {
 
-					addUser(user);
-					emailService.sendNewUserEmail(user);
+					//addUser(user);
+					//emailService.sendNewUserEmail(user);
 					usuariosFiltrados.add(user);
 
-				} else {
+				//} else {
 
-					usuariosFiltrados.add(aux);
+				//	usuariosFiltrados.add(aux);
 
-				}
+				//}
 
 			}
 
@@ -316,24 +316,35 @@ public class UserService {
 
 		case 1:
 			genero = "M";
+			break;
 		case 2:
 			genero = "F";
+			break;
 		case 3:
 			genero = "NB";
+			break;
+		default:
+			genero = null;
 		}
-
+		if (genero == null) {
+			return usuarios;
+		}
 		List<User> usuariosFiltrados = new ArrayList<User>();
 
 		for (User user : usuarios) {
+			System.out.println("Genero user: " + user.getGenero());
+			System.out.println("Genero filtro: " + genero);
+			System.out.println("Genero comparacion: " + user.getGenero().equals(genero));
+
 			if (user.getGenero().equals(genero)) {
 				User aux = getUserByNumDocumento(user.getNumDocumento());
-				if (aux == null) {
-					addUser(user);
-					emailService.sendNewUserEmail(user);
+				//if (aux == null) {
+					//addUser(user);
+					// emailService.sendNewUserEmail(user);
 					usuariosFiltrados.add(user);
-				} else {
-					usuariosFiltrados.add(aux);
-				}
+				//} else {
+				//	usuariosFiltrados.add(aux);
+				//}
 			}
 		}
 
@@ -359,29 +370,28 @@ public class UserService {
 		return period.getYears() > 16;
 	}
 
-	public Map<String,List<User>> ChekCensoFile(List<User> usuarios) {
-		
-		Map<String,List<User>>mapaUsers = new HashMap<String,List<User>>();
-		List<User> listaViejos= new ArrayList<User>();
-		List<User> listaNuevos= new ArrayList<User>();
+	public Map<String, List<User>> ChekCensoFile(List<User> usuarios) {
+
+		Map<String, List<User>> mapaUsers = new HashMap<String, List<User>>();
+		List<User> listaViejos = new ArrayList<User>();
+		List<User> listaNuevos = new ArrayList<User>();
 
 		for (User user : usuarios) {
-			User userAux=userRepository.findByNumDocumento(user.getNumDocumento());
-			if(userAux != null) {
-				System.out.println("user en BD");
-					listaViejos.add(userAux);
-				
-			}else {
-				System.out.println("User creado");
+			User userAux = userRepository.findByNumDocumento(user.getNumDocumento());
+			System.out.println("userAux "+userAux);
+			if (userAux != null) {
+				listaViejos.add(userAux);
+			} else {
 				addUser(user);
+				System.out.println("Nuevo user añadido");
 				listaNuevos.add(user);
 			}
-			
+
 		}
-		
+
 		mapaUsers.put("usuariosNuevos", listaNuevos);
 		mapaUsers.put("usuariosViejos", listaViejos);
-		
+
 		return mapaUsers;
 	}
 

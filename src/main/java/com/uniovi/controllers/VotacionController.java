@@ -65,8 +65,8 @@ public class VotacionController {
 	@Autowired
 	private Environment env;
 
-	private Map<String,List<User>>mapaUsers;
-	
+	private Map<String, List<User>> mapaUsers;
+
 	@RequestMapping(value = "/admin/crearVotacion", method = RequestMethod.GET)
 	public String creacionVotacion(Model model) {
 
@@ -80,16 +80,16 @@ public class VotacionController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/irCrearVotacionSiguiente", method = RequestMethod.POST)
 	public String crearVotacion(@Validated @ModelAttribute("votacion") Votacion votacion, BindingResult result,
-			Model model, @RequestParam("file") MultipartFile file,RedirectAttributes redirectAttributes) {
+			Model model, @RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 
 		createVoteFormValidator.validate(votacion, result);
-System.out.println("Fichero vacio: "+file.isEmpty());
+		System.out.println("Fichero vacio: " + file.isEmpty());
 		if (!file.isEmpty()) {
 			votacion.setForAll(false);
 		} else {
 			votacion.setForAll(true);
 		}
-		System.out.println("Tiene Errores: "+result.hasErrors());
+		System.out.println("Tiene Errores: " + result.hasErrors());
 		if (result.hasErrors()) {
 
 			Errors errores = result;
@@ -120,9 +120,9 @@ System.out.println("Fichero vacio: "+file.isEmpty());
 				String msgCreacionVotacion = (String) auxiliar.get("msg");
 				System.out.println("antes filtro");
 
-				mapaUsers =aplicarFiltroVotacion(votacion, usuarios, filtroEdad, filtroGenero);
+				mapaUsers = aplicarFiltroVotacion(votacion, usuarios, filtroEdad, filtroGenero,true);
 				System.out.println("despues filtro");
-				
+
 				model.addAttribute("tituloCreacion", "Informacion Complementaria");
 				model.addAttribute("msgCreacionVotacion", msgCreacionVotacion);
 				System.out.println("Redirect");
@@ -136,38 +136,50 @@ System.out.println("Fichero vacio: "+file.isEmpty());
 
 		} else {
 			// aqui añado los filtros a todos los users de la aplicacion
-			
+
 			if (filtroEdad != 0 || filtroGenero != 0) {
 				List<User> listadoUsuarios = usersService.getAllVotantes();
-				aplicarFiltroVotacion(votacion, listadoUsuarios, filtroEdad, filtroGenero);
+				aplicarFiltroVotacion(votacion, listadoUsuarios, filtroEdad, filtroGenero,false);
 			}
 
 		}
 		System.out.println("Redirect");
-		   redirectAttributes.addAttribute("idVotacion",  votacion.getId());
-		   model.addAttribute("votacion", votacion); 
-		   return "/admin/crearVotacion2";
-		//return "redirect:admin/crearVotacionSiguiente/{idVotacion}";
+		redirectAttributes.addAttribute("idVotacion", votacion.getId());
+		model.addAttribute("votacion", votacion);
+		return "/admin/crearVotacion2";
+		// return "redirect:admin/crearVotacionSiguiente/{idVotacion}";
 	}
-	
-	private Map<String,List<User>> aplicarFiltroVotacion(Votacion votacion, List<User> usuarios, int filtroEdad, int filtroGenero) {
-		System.out.println("Filtro Edad: "+filtroEdad+", Filtro Genero: "+filtroGenero);
+
+	private Map<String, List<User>> aplicarFiltroVotacion(Votacion votacion, List<User> usuarios, int filtroEdad,
+			int filtroGenero, boolean checkFile) {
+		System.out.println("Filtro Edad: " + filtroEdad + ", Filtro Genero: " + filtroGenero);
 		if (filtroEdad != 0) {
+			System.out.println("Usuario Antes Filtro Edad: "+usuarios.size());
 			usuarios = usersService.filtrarVotantesPorEdad(filtroEdad, usuarios);
+			System.out.println("Usuario Despues Filtro Edad: "+usuarios.size());
+
 		}
 
 		if (filtroGenero != 0) {
+			System.out.println("Usuario Antes Filtro Genero: "+usuarios.size());
 			usuarios = usersService.filtrarVotantesPorGenero(filtroGenero, usuarios);
-		}
-		System.out.println("Usuarios para crear: "+usuarios.size());
-		
-		Map<String,List<User>>mapaUsers =usersService.ChekCensoFile(usuarios);
+			System.out.println("Usuario Despues Filtro Genero: "+usuarios.size());
 
-		for (Map.Entry<String, List<User>> entry : mapaUsers.entrySet()) {
-			votacionService.asignarVotantes(votacion, entry.getValue());
 		}
-		// votacionService.notificarNuevaVotacion(votacion, usuarios);
-		return mapaUsers;
+		System.out.println("Usuarios para crear: " + usuarios.size());
+
+		//if (checkFile) {
+			Map<String, List<User>> mapaUsers = usersService.ChekCensoFile(usuarios);
+
+			for (Map.Entry<String, List<User>> entry : mapaUsers.entrySet()) {
+				votacionService.asignarVotantes(votacion, entry.getValue());
+			}
+			// votacionService.notificarNuevaVotacion(votacion, usuarios);
+			return mapaUsers;
+		//} else {
+		//	return usuarios;
+		//}
+
 	}
 
 	// @SuppressWarnings("null")
@@ -178,18 +190,20 @@ System.out.println("Fichero vacio: "+file.isEmpty());
 		System.out.println(mapaUsers);
 		List<User> usuarios = new ArrayList<User>();
 
-		//int filtroEdad = votacion.getFiltroEdad();
-		//int filtroGenero = votacion.getFiltroGenero();
+		// int filtroEdad = votacion.getFiltroEdad();
+		// int filtroGenero = votacion.getFiltroGenero();
 
-		//System.out.println(filtroEdad + " " + filtroGenero);
-		if(mapaUsers!=null) {
-			List<User> usuariosNuevos = mapaUsers.get("usuariosNuevos");
+		// System.out.println(filtroEdad + " " + filtroGenero);
+		if (mapaUsers != null) {
 			
+			List<User> usuariosNuevos = mapaUsers.get("usuariosNuevos");
+
 			for (User user : usuariosNuevos) {
+				System.out.println("Enviando email nuevo user: "+user.getNombre());
 				emailService.sendNewUserEmail(user);
 			}
 		}
-		
+
 		List<Voto> votos = votoService.getVotos(votacion);
 
 		if (votos.size() > 0) {
@@ -202,7 +216,7 @@ System.out.println("Fichero vacio: "+file.isEmpty());
 			usuarios = (List<User>) usersService.getAllVotantes();
 
 		}
-		
+
 		/*
 		 * if(votacion.isForAll()) {
 		 * 
@@ -239,7 +253,7 @@ System.out.println("Fichero vacio: "+file.isEmpty());
 		Votacion votacion = votacionService.getVotacion(idVotacion);
 
 		model.addAttribute("votacion", votacion);
-System.out.println("cambio pag");
+		System.out.println("cambio pag");
 		return "/admin/crearVotacion2";
 
 	}
@@ -424,7 +438,7 @@ System.out.println("cambio pag");
 			model.addAttribute("deleteVotacion", true);
 
 			return "/admin/EditVotacionInfo";
-			
+
 		} else {
 
 			try {

@@ -75,9 +75,9 @@ public class CensoFileService {
 			sb.append("Todos los registros procesados correctamente");
 		}
 
-		if (nuevosUsuarios.size() > 0) {
-			guardarUsuarios(nuevosUsuarios);
-		}
+		//if (nuevosUsuarios.size() > 0) {
+		//	guardarUsuarios(nuevosUsuarios);
+		//}
 
 		Map<String, Object> retorno = new HashMap<String, Object>();
 
