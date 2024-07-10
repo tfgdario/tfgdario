@@ -114,8 +114,9 @@ public class VotacionController {
 		if (!file.isEmpty()) {
 			System.out.println("Procesando Fichero");
 			try {
-
 				auxiliar = censoFileService.readCensoFileWhileCreatingPoll(file.getOriginalFilename());
+				System.out.println("aux votacion controller crear votacon"+auxiliar);
+
 				usuarios = (List<User>) auxiliar.get("Usuarios");
 				String msgCreacionVotacion = (String) auxiliar.get("msg");
 				System.out.println("antes filtro");

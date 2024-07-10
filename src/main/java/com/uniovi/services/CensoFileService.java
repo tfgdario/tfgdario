@@ -105,12 +105,12 @@ public class CensoFileService {
 
 			switch (extension.toLowerCase()) {
 			case "csv":
-
+System.out.println("csv");
 				usuarios = readCSV(fileName);
 				break;
 
 			case "xlsx":
-
+System.out.println("excel");
 				usuarios = readXLSX(fileName);
 				break;
 
@@ -180,10 +180,12 @@ public class CensoFileService {
 
 		List<User> nuevosUsuarios = new ArrayList<User>();
 		Row currentRow = iterator.next();
-		if (!(currentRow.getLastCellNum() == 12)) {
+		if (!(currentRow.getLastCellNum() == 13)) {
+			System.out.println("error");
 			throw new Exception("Archivo .xlsx mal formado");
 		}
 		while (iterator.hasNext()) {
+			System.out.println("iterando");
 
 			currentRow = iterator.next();
 
