@@ -29,10 +29,18 @@
 
 		<p th:utext='${msg}'></p>
 		
-		<button type="submit" id="btnVolver"
-			onclick="window.history.go(-1); return false;"
+		<div class="form-group" id="datosok">
+			<p th:utext='${msgFile}'></p>
+		</div>
+		
+		
+		<form class="form-horizontal" method="get" action="/home">
+
+				<button type="submit" id="btnVolver"
 			class="btn btn-primary" th:text="#{volver.message}">
 		</button>
+
+		</form>
 
 	</div>
 	

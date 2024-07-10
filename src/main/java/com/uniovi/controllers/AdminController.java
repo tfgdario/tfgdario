@@ -7,11 +7,15 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.unbescape.html.HtmlEscape;
 
 import com.uniovi.entities.User;
@@ -38,6 +42,13 @@ public class AdminController {
 		return "admin/loadCenso";
 	}
 
+	@ExceptionHandler(MaxUploadSizeExceededException.class)
+	  public String handleMaxSizeException(Model model, MaxUploadSizeExceededException e) {
+	    model.addAttribute("msgFile", "File is too large!");
+
+	    return "admin/loadCenso";
+	  }
+
 	@RequestMapping(value = "/cargarCenso", method = RequestMethod.POST)
 	public String cargarCenso(Model model, @RequestParam("file") MultipartFile file) {
 
@@ -48,14 +59,20 @@ public class AdminController {
 				auxiliar = censoFileService.readCensoFile(file.getOriginalFilename());
 			} catch (Exception e) {
 				System.err.println(e.getMessage());
+				model.addAttribute("msgFile", e.getMessage());
 			}
-			
 
-			String msg = (String) auxiliar.get("msg");
+			if (auxiliar != null) {
+				String msg = (String) auxiliar.get("msg");
 
-			model.addAttribute("msg",
-					HtmlEscape.escapeHtml4Xml(msg).replace(System.getProperty("line.separator"), "<br />"));
+				model.addAttribute("msg",
+						HtmlEscape.escapeHtml4Xml(msg).replace(System.getProperty("line.separator"), "<br />"));
+			}
+		} else {
+			model.addAttribute("msgFile", "No se ha seleccionado ningún archivo");
+
 		}
+
 		return "admin/loadCenso";
 	}
 

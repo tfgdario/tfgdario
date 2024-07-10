@@ -48,10 +48,11 @@ public class InsertSampleDataService {
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
 
+	
 		Votacion votacion = new Votacion();
 
-		votacion.setNombre("Referendum");
-		votacion.setConsulta("Consulta Referendum");
+		votacion.setNombre("Referendum 1");
+		votacion.setConsulta("¿Ganará España la Eurocopa 2024?");
 		votacion.setFechaInicio(c.getTime());
 		c.add(Calendar.HOUR, 1);
 		votacion.setFechaFin(c.getTime());
@@ -59,16 +60,125 @@ public class InsertSampleDataService {
 
 		votacionService.addVotacion(votacion);
 
+		
 		Votacion votacion2 = new Votacion();
 		
 		votacion2.setNombre("Referendum 2");
-		votacion2.setConsulta("Consulta Referendum 2");
+		votacion2.setConsulta("¿Qué equipo ganará la Eurocopa 2024?");
 		votacion2.setFechaInicio(c.getTime());
 		c.add(Calendar.HOUR, 1);
 		votacion2.setFechaFin(c.getTime());
-		votacion2.setForAll(false);
+		votacion2.setForAll(true);
 
 		votacionService.addVotacion(votacion2);
+		
+		
+		Votacion votacion3 = new Votacion();
+		
+		votacion3.setNombre("Referendum 3");
+		votacion3.setConsulta("¿Crees que habrá que repetir las elecciones catalanas?");
+		votacion3.setFechaInicio(c.getTime());
+		c.add(Calendar.HOUR, 1);
+		votacion3.setFechaFin(c.getTime());
+		votacion3.setForAll(false);
+
+		votacionService.addVotacion(votacion3);
+		
+		
+		Votacion votacion4 = new Votacion();
+		
+		votacion4.setNombre("Referendum 4");
+		votacion4.setConsulta("¿Cuántas medallas de oro conseguirá España en los JJOO de París 2024?");
+		votacion4.setFechaInicio(c.getTime());
+		c.add(Calendar.HOUR, 1);
+		votacion4.setFechaFin(c.getTime());
+		votacion4.setForAll(true);
+
+		votacionService.addVotacion(votacion4);
+		
+		
+		Votacion votacion5 = new Votacion();
+		
+		votacion5.setNombre("Referendum 5");
+		votacion5.setConsulta("¿A qué partido político votarás en las próximas elecciones generales?");
+		votacion5.setFechaInicio(c.getTime());
+		c.add(Calendar.HOUR, 1);
+		votacion5.setFechaFin(c.getTime());
+		votacion5.setForAll(false);
+
+		votacionService.addVotacion(votacion5);
+		
+		//--------------------------------
+		Votacion votacion6 = new Votacion();
+		
+		votacion6.setNombre("Referendum 6");
+		votacion6.setConsulta("¿A qué partido político votarás en las próximas elecciones generales?");
+		votacion6.setFechaInicio(c.getTime());
+		c.add(Calendar.HOUR, 1);
+		votacion6.setFechaFin(c.getTime());
+		votacion6.setForAll(true);
+
+		votacionService.addVotacion(votacion6);
+		
+		Votacion votacion7 = new Votacion();
+		
+		votacion7.setNombre("Referendum 6");
+		votacion7.setConsulta("¿A qué partido político votarás en las próximas elecciones generales?");
+		votacion7.setFechaInicio(c.getTime());
+		c.add(Calendar.HOUR, 1);
+		votacion7.setFechaFin(c.getTime());
+		votacion7.setForAll(true);
+
+		votacionService.addVotacion(votacion7);
+		
+		
+		
+		Votacion votacion8 = new Votacion();
+		
+		votacion8.setNombre("Referendum 6");
+		votacion8.setConsulta("¿A qué partido político votarás en las próximas elecciones generales?");
+		votacion8.setFechaInicio(c.getTime());
+		c.add(Calendar.HOUR, 1);
+		votacion8.setFechaFin(c.getTime());
+		votacion8.setForAll(true);
+
+		votacionService.addVotacion(votacion8);
+		
+		
+		
+		//--------------------------------------------
+		
+		opcionesService.addOpcion(new OpcionesVotacion(null,"En Blanco"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion,"Si"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion,"No"));
+		
+		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"España"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Alemania"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Portugal"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Francia"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Inglaterra"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Suiza"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Holanda"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Turquia"));
+		
+		opcionesService.addOpcion(new OpcionesVotacion(votacion3,"Sí"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion3,"No"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion3,"No sabe / No contesta"));
+		
+		opcionesService.addOpcion(new OpcionesVotacion(votacion4,"Menos de 5"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion4,"Entre 5 y 10"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion4,"Entre 10 y 20"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion4,"Más de 20"));
+		
+		opcionesService.addOpcion(new OpcionesVotacion(votacion5,"PP"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion5,"PSOE"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion5,"Sumar"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion5,"Podemos"));
+		opcionesService.addOpcion(new OpcionesVotacion(votacion5,"Vox"));
+	
+		
+		
+		
 
 		User user = new User();
 
@@ -108,9 +218,16 @@ public class InsertSampleDataService {
 
 		Voto voto = new Voto();
 		voto.setUser(user);
-		voto.setVotacion(votacion2);
+		voto.setVotacion(votacion3);
+
 		votoService.addVoto(voto);
 		
+		
+		voto = new Voto();
+		voto.setUser(user);
+		voto.setVotacion(votacion5);
+
+		votoService.addVoto(voto);
 		
 		
 		user = new User();
@@ -1076,12 +1193,7 @@ public class InsertSampleDataService {
 		
 		userService.addUser(user);
 		
-		opcionesService.addOpcion(new OpcionesVotacion(null,"En Blanco"));
-		opcionesService.addOpcion(new OpcionesVotacion(votacion,"Si"));
-		opcionesService.addOpcion(new OpcionesVotacion(votacion,"Claro que Si"));
-		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Si"));
-		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"NOOOOP"));
-		opcionesService.addOpcion(new OpcionesVotacion(votacion2,"Puede"));
+		
 		
 	}
 

@@ -221,8 +221,9 @@ public class UserController {
 			model.addAttribute("opciones", votacion.getOpciones());
 			
 		}else {
-			
-			model.addAttribute("votaciones", votacionService.getVotaciones());
+			String numDocumento = principal.getName(); // email es el name de la autenticación
+			User user = usersService.getUserByNumDocumento(numDocumento);
+			model.addAttribute("votaciones", votacionService.getVotacionesDisponible(user));//votacionService.getVotaciones());
 			model.addAttribute("msgVotacionInfo", "No se puede emitir voto, la votación no esta activa");
 			return "/user/votacionesList";
 			

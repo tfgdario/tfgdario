@@ -1,5 +1,6 @@
 package com.uniovi.validators;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
@@ -42,6 +43,22 @@ public class CreateVoteFormValidator implements Validator {
 		if(votacion.getFechaInicio().before(hoy) || votacion.getFechaInicio().equals(hoy) || votacion.getFechaFin().before(hoy) || votacion.getFechaFin().equals(hoy)  ){
 			errors.rejectValue("fechaInicio", "ErrorFechas", "Error.signup.fechasVotacion2");
 		}
+		
+		Calendar cal = Calendar.getInstance(); 
+		cal.add(Calendar.MONTH, 3);
+		
+		if(votacion.getFechaInicio().after(cal.getTime())){
+			errors.rejectValue("fechaInicio", "ErrorFechas", "Error.signup.fechInicioMaximoVotacion");
+		}
+		
+		//cal = Calendar.getInstance(); 
+		cal.add(Calendar.MONTH, 3);
+		
+		if(votacion.getFechaFin().after(cal.getTime())){
+			errors.rejectValue("fechaInicio", "ErrorFechas", "Error.signup.fechFinMaximoVotacion");
+		}
+		
+		System.out.println(cal.getTime());
 		
 	}
 

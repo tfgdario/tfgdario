@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -37,7 +36,13 @@ public class CensoFileService {
 
 	public Map<String, Object> readCensoFile(String fileName) throws Exception {
 
-		List<User> usuarios = InicializarLecturaFichero(fileName);
+		List<User> usuarios = null;
+
+		try {
+			usuarios = InicializarLecturaFichero(fileName);
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
 
 		List<User> nuevosUsuarios = new ArrayList<User>();
 
@@ -75,9 +80,9 @@ public class CensoFileService {
 			sb.append("Todos los registros procesados correctamente");
 		}
 
-		//if (nuevosUsuarios.size() > 0) {
-		//	guardarUsuarios(nuevosUsuarios);
-		//}
+		if (nuevosUsuarios.size() > 0) {
+			guardarUsuarios(nuevosUsuarios);
+		}
 
 		Map<String, Object> retorno = new HashMap<String, Object>();
 
@@ -91,7 +96,7 @@ public class CensoFileService {
 	}
 
 	private List<User> InicializarLecturaFichero(String fileName) throws Exception {
-		
+
 		String[] aux = fileName.split(Pattern.quote("."));// substring(fileName.length()-4, fileName.length());
 		String extension = aux[aux.length - 1];
 		List<User> usuarios = null;
@@ -103,7 +108,7 @@ public class CensoFileService {
 
 				usuarios = readCSV(fileName);
 				break;
-				
+
 			case "xlsx":
 
 				usuarios = readXLSX(fileName);
@@ -121,15 +126,15 @@ public class CensoFileService {
 			System.err.println(e.getMessage());
 
 		}
-		
+
 		return null;
-		
+
 	}
 
 	public Map<String, Object> readCensoFileWhileCreatingPoll(String fileName) throws Exception {
-		
+
 		List<User> usuarios = InicializarLecturaFichero(fileName);
-		
+
 		List<User> usuariosComprobados = new ArrayList<User>();
 
 		for (User user : usuarios) {
@@ -140,13 +145,13 @@ public class CensoFileService {
 				usuariosComprobados.add(user);
 			}
 		}
-		
+
 		Map<String, Object> retorno = new HashMap<String, Object>();
-		//guardarUsuarios(usuariosComprobados);
+		// guardarUsuarios(usuariosComprobados);
 		retorno.put("Usuarios", usuariosComprobados);
 
 		return retorno;
-		
+
 	}
 
 	private boolean comprobarInfoUsuario(User user, List<User> usuariosComprobados) {
@@ -165,7 +170,8 @@ public class CensoFileService {
 		return true;
 	}
 
-	private List<User> readXLSX(String fileName) throws FileNotFoundException, IOException, ParseException {
+	@SuppressWarnings("resource")
+	private List<User> readXLSX(String fileName) throws Exception {
 
 		FileInputStream excelFile = new FileInputStream(new File(fileName));
 		Workbook workbook = new XSSFWorkbook(excelFile);
@@ -174,29 +180,34 @@ public class CensoFileService {
 
 		List<User> nuevosUsuarios = new ArrayList<User>();
 		Row currentRow = iterator.next();
-
+		if (!(currentRow.getLastCellNum() == 12)) {
+			throw new Exception("Archivo .xlsx mal formado");
+		}
 		while (iterator.hasNext()) {
 
 			currentRow = iterator.next();
+
 			User newUser = new User();
-
-			newUser.setNombre(currentRow.getCell(0).getStringCellValue());
-			newUser.setApellidos(currentRow.getCell(1).getStringCellValue());
-			newUser.setNumDocumento(currentRow.getCell(2).getStringCellValue());
-			newUser.setNacionalidad(currentRow.getCell(3).getStringCellValue());
-			newUser.setEmail(currentRow.getCell(4).getStringCellValue());
-			newUser.setTipoDocumento(currentRow.getCell(5).getStringCellValue());
-			newUser.setPassword(passwordService.generarPassword(15));
-			newUser.setPasswordConfirm(newUser.getPassword());
-			newUser.setRole(rolesService.getRoles()[0]);
-			newUser.setFechaNacimientoString(currentRow.getCell(6).toString());
-			newUser.setCalle(currentRow.getCell(7).toString());
-			newUser.setCp(currentRow.getCell(8).toString());
-			newUser.setPoblacion(currentRow.getCell(9).toString());
-			newUser.setProvincia(currentRow.getCell(10).toString());
-			newUser.setPais(currentRow.getCell(11).toString());
-			newUser.setGenero(currentRow.getCell(12).toString());
-
+			try {
+				newUser.setNombre(currentRow.getCell(0).getStringCellValue());
+				newUser.setApellidos(currentRow.getCell(1).getStringCellValue());
+				newUser.setNumDocumento(currentRow.getCell(2).getStringCellValue());
+				newUser.setNacionalidad(currentRow.getCell(3).getStringCellValue());
+				newUser.setEmail(currentRow.getCell(4).getStringCellValue());
+				newUser.setTipoDocumento(currentRow.getCell(5).getStringCellValue());
+				newUser.setPassword(passwordService.generarPassword(15));
+				newUser.setPasswordConfirm(newUser.getPassword());
+				newUser.setRole(rolesService.getRoles()[0]);
+				newUser.setFechaNacimientoString(currentRow.getCell(6).toString());
+				newUser.setCalle(currentRow.getCell(7).toString());
+				newUser.setCp(currentRow.getCell(8).toString());
+				newUser.setPoblacion(currentRow.getCell(9).toString());
+				newUser.setProvincia(currentRow.getCell(10).toString());
+				newUser.setPais(currentRow.getCell(11).toString());
+				newUser.setGenero(currentRow.getCell(12).toString());
+			} catch (Exception e) {
+				throw new Exception("Archivo .xlsx mal formado");
+			}
 			nuevosUsuarios.add(newUser);
 
 		}
@@ -207,37 +218,39 @@ public class CensoFileService {
 
 	}
 
-	private List<User> readCSV(String fileName) throws IOException, FileNotFoundException, ParseException {
+	private List<User> readCSV(String fileName) throws Exception {
 
 		List<User> usuarios = new ArrayList<User>();
 		try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 			String line;
 			br.readLine();
-			
-			
-			
+
 			while ((line = br.readLine()) != null) {
 				String[] values = line.split(";");
-
+				if (!(values.length == 12)) {
+					throw new Exception("Archivo .xlsx mal formado");
+				}
 				User newUser = new User();
-
-				newUser.setNombre(values[0].toString());
-				newUser.setApellidos(values[1].toString());
-				newUser.setNumDocumento(values[2].toString());
-				newUser.setNacionalidad(values[3].toString());
-				newUser.setEmail(values[4].toString());
-				newUser.setTipoDocumento(values[5].toString());
-				newUser.setPassword(passwordService.generarPassword(15));
-				newUser.setPasswordConfirm(newUser.getPassword());
-				newUser.setRole(rolesService.getRoles()[0]);
-				newUser.setFechaNacimientoString(values[6].toString());
-				newUser.setCalle(values[7].toString());
-				newUser.setCp(values[8].toString());
-				newUser.setPoblacion(values[9].toString());
-				newUser.setProvincia(values[10].toString());
-				newUser.setPais(values[11].toString());
-				newUser.setGenero(values[12].toString());
-
+				try {
+					newUser.setNombre(values[0].toString());
+					newUser.setApellidos(values[1].toString());
+					newUser.setNumDocumento(values[2].toString());
+					newUser.setNacionalidad(values[3].toString());
+					newUser.setEmail(values[4].toString());
+					newUser.setTipoDocumento(values[5].toString());
+					newUser.setPassword(passwordService.generarPassword(15));
+					newUser.setPasswordConfirm(newUser.getPassword());
+					newUser.setRole(rolesService.getRoles()[0]);
+					newUser.setFechaNacimientoString(values[6].toString());
+					newUser.setCalle(values[7].toString());
+					newUser.setCp(values[8].toString());
+					newUser.setPoblacion(values[9].toString());
+					newUser.setProvincia(values[10].toString());
+					newUser.setPais(values[11].toString());
+					newUser.setGenero(values[12].toString());
+				} catch (Exception e) {
+					throw new Exception("Archivo .xlsx mal formado");
+				}
 				usuarios.add(newUser);
 
 			}

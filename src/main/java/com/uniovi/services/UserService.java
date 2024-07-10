@@ -337,7 +337,7 @@ public class UserService {
 			System.out.println("Genero comparacion: " + user.getGenero().equals(genero));
 
 			if (user.getGenero().equals(genero)) {
-				User aux = getUserByNumDocumento(user.getNumDocumento());
+				//User aux = getUserByNumDocumento(user.getNumDocumento());
 				//if (aux == null) {
 					//addUser(user);
 					// emailService.sendNewUserEmail(user);
