@@ -180,6 +180,7 @@ System.out.println("excel");
 
 		List<User> nuevosUsuarios = new ArrayList<User>();
 		Row currentRow = iterator.next();
+		System.out.println(currentRow.getLastCellNum());
 		if (!(currentRow.getLastCellNum() == 13)) {
 			System.out.println("error");
 			throw new Exception("Archivo .xlsx mal formado");
@@ -229,7 +230,7 @@ System.out.println("excel");
 
 			while ((line = br.readLine()) != null) {
 				String[] values = line.split(";");
-				if (!(values.length == 12)) {
+				if (!(values.length == 13)) {
 					throw new Exception("Archivo .xlsx mal formado");
 				}
 				User newUser = new User();

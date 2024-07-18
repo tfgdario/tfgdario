@@ -1,4 +1,4 @@
-/*C82*/SET SCHEMA PUBLIC
+/*C151*/SET SCHEMA PUBLIC
 alter table opciones_votacion drop constraint FKacumitmpvrr32p7pljbndgjv9
 alter table voto drop constraint FKqx7hbsxuj51uh8seo4u62xe2s
 alter table voto drop constraint FK86bycr6xwepx8d6wi5h2b8w0s
@@ -518,21 +518,21 @@ INSERT INTO PAIS VALUES('ZMB','Zambia')
 COMMIT
 INSERT INTO PAIS VALUES('ZWE','Zimbabue')
 COMMIT
-INSERT INTO VOTACION VALUES(1,'\u00bfGanar\u00e1 Espa\u00f1a la Eurocopa 2024?','2024-07-10 22:40:04.940000','2024-07-10 21:40:04.940000',TRUE,'Referendum 1')
+INSERT INTO VOTACION VALUES(1,'\u00bfGanar\u00e1 Espa\u00f1a la Eurocopa 2024?','2024-07-18 15:46:52.034000','2024-07-18 14:46:52.034000',TRUE,'Referendum 1')
 COMMIT
-INSERT INTO VOTACION VALUES(2,'\u00bfQu\u00e9 equipo ganar\u00e1 la Eurocopa 2024?','2024-07-10 23:40:04.940000','2024-07-10 22:40:04.940000',TRUE,'Referendum 2')
+INSERT INTO VOTACION VALUES(2,'\u00bfQu\u00e9 equipo ganar\u00e1 la Eurocopa 2024?','2024-07-18 16:46:52.034000','2024-07-18 15:46:52.034000',TRUE,'Referendum 2')
 COMMIT
-INSERT INTO VOTACION VALUES(3,'\u00bfCrees que habr\u00e1 que repetir las elecciones catalanas?','2024-07-11 00:40:04.940000','2024-07-10 23:40:04.940000',FALSE,'Referendum 3')
+INSERT INTO VOTACION VALUES(3,'\u00bfCrees que habr\u00e1 que repetir las elecciones catalanas?','2024-07-18 17:46:52.034000','2024-07-18 16:46:52.034000',FALSE,'Referendum 3')
 COMMIT
-INSERT INTO VOTACION VALUES(4,'\u00bfCu\u00e1ntas medallas de oro conseguir\u00e1 Espa\u00f1a en los JJOO de Par\u00eds 2024?','2024-07-11 01:40:04.940000','2024-07-11 00:40:04.940000',TRUE,'Referendum 4')
+INSERT INTO VOTACION VALUES(4,'\u00bfCu\u00e1ntas medallas de oro conseguir\u00e1 Espa\u00f1a en los JJOO de Par\u00eds 2024?','2024-07-18 18:46:52.034000','2024-07-18 17:46:52.034000',TRUE,'Referendum 4')
 COMMIT
-INSERT INTO VOTACION VALUES(5,'\u00bfA qu\u00e9 partido pol\u00edtico votar\u00e1s en las pr\u00f3ximas elecciones generales?','2024-07-11 02:40:04.940000','2024-07-11 01:40:04.940000',FALSE,'Referendum 5')
+INSERT INTO VOTACION VALUES(5,'\u00bfA qu\u00e9 partido pol\u00edtico votar\u00e1s en las pr\u00f3ximas elecciones generales?','2024-07-18 19:46:52.034000','2024-07-18 18:46:52.034000',FALSE,'Referendum 5')
 COMMIT
-INSERT INTO VOTACION VALUES(6,'\u00bfA qu\u00e9 partido pol\u00edtico votar\u00e1s en las pr\u00f3ximas elecciones generales?','2024-07-11 03:40:04.940000','2024-07-11 02:40:04.940000',TRUE,'Referendum 6')
+INSERT INTO VOTACION VALUES(6,'\u00bfA qu\u00e9 partido pol\u00edtico votar\u00e1s en las pr\u00f3ximas elecciones generales?','2024-07-18 20:46:52.034000','2024-07-18 19:46:52.034000',TRUE,'Referendum 6')
 COMMIT
-INSERT INTO VOTACION VALUES(7,'\u00bfA qu\u00e9 partido pol\u00edtico votar\u00e1s en las pr\u00f3ximas elecciones generales?','2024-07-11 04:40:04.940000','2024-07-11 03:40:04.940000',TRUE,'Referendum 6')
+INSERT INTO VOTACION VALUES(7,'\u00bfA qu\u00e9 partido pol\u00edtico votar\u00e1s en las pr\u00f3ximas elecciones generales?','2024-07-18 21:46:52.034000','2024-07-18 20:46:52.034000',TRUE,'Referendum 6')
 COMMIT
-INSERT INTO VOTACION VALUES(8,'\u00bfA qu\u00e9 partido pol\u00edtico votar\u00e1s en las pr\u00f3ximas elecciones generales?','2024-07-11 05:40:04.940000','2024-07-11 04:40:04.940000',TRUE,'Referendum 6')
+INSERT INTO VOTACION VALUES(8,'\u00bfA qu\u00e9 partido pol\u00edtico votar\u00e1s en las pr\u00f3ximas elecciones generales?','2024-07-18 22:46:52.034000','2024-07-18 21:46:52.034000',TRUE,'Referendum 6')
 COMMIT
 INSERT INTO OPCIONES_VOTACION VALUES(1,'En Blanco',NULL)
 COMMIT
@@ -580,116 +580,114 @@ INSERT INTO OPCIONES_VOTACION VALUES(22,'Podemos',5)
 COMMIT
 INSERT INTO OPCIONES_VOTACION VALUES(23,'Vox',5)
 COMMIT
-INSERT INTO USER VALUES(1,NULL,NULL,NULL,'evoteapp.tfg@gmail.com',NULL,NULL,NULL,'admin','0',NULL,'$2a$10$OxRrkQ9hdw7gyQOwsvFLCuFmwRBtxjZAzHZQGjj.wQo/7.VCb8ZFW',NULL,NULL,'ROLE_ADMIN','DNI')
+INSERT INTO USER VALUES(1,NULL,NULL,NULL,'evoteapp.tfg@gmail.com',NULL,NULL,NULL,'admin','0',NULL,'$2a$10$uG3P2sP9SEn6yeQ6Pc0b8ePYrU0/3GkeAhu2ooGPIo.iZWSyc0LEq',NULL,NULL,'ROLE_ADMIN','DNI')
 COMMIT
-INSERT INTO USER VALUES(2,'Suarez','Calle falsa 321','33686','dariosuarez_@hotmail.com','1991-12-06 21:40:05.036000','NB','ESP','Dario','53548918L','Espa\u00f1a','$2a$10$/Afy6OQ2QNuGEFV8hbYTWOKXtzk0AiNRXJr11s8wdK5XSF3onnyq6','Serrapio','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(2,'Suarez','Calle falsa 321','33686','tfgpruebas2024@gmail.com','1991-12-06 14:46:52.466000','NB','ESP','Dario','53548918L','Espa\u00f1a','$2a$10$Nz5bg.yjK/1m0EAzl5IeT.9CxiAXFgOkfEuQF7ByAMB2XtbgH3MI.','Serrapio','Asturias','ROLE_USER','DNI')
 COMMIT
 INSERT INTO VOTO VALUES(2,3,NULL)
 COMMIT
 INSERT INTO VOTO VALUES(2,5,NULL)
 COMMIT
-INSERT INTO USER VALUES(3,'Lannister','Calle falsa 14','33002','tfgpruebas2024@gmail.com','1990-12-26 21:40:05.036000','F','ESP','Cersei','33333333P','Espa\u00f1a','$2a$10$1PQhG2XCsMrBjWqRMhfk7O6czDfbiUe9z57SO2aQbLymvp/XrDi66','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(3,'Lannister','Calle falsa 14','33002','tfgpruebas2024@gmail.com','1990-12-26 14:46:52.466000','F','ESP','Cersei','33333333P','Espa\u00f1a','$2a$10$dqa.uaiAw76QqUpx1ysOLuJomGjryldpEzHduioqLGuv6UxppHgsG','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(4,'Lannister','Calle falsa 14','33002','tfgpruebas2024@gmail.com','1985-08-14 21:40:05.036000','M','ESP','Jaime','11111112L','Espa\u00f1a','$2a$10$HDwr0/aC7xUZlTIHRVewheEp9HqcoJAysETs8FNgUDrt4L4U.hWbS','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(4,'Lannister','Calle falsa 14','33002','tfgpruebas2024@gmail.com','1985-08-14 14:46:52.466000','M','ESP','Jaime','11111112L','Espa\u00f1a','$2a$10$tMmNvhJdu4iBOPNAkupcUu1xmFs5sfEKh1lHD7zJ3haecR2X45vDq','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(5,'Targaryen','Calle falsa 13','33002','tfgpruebas2024@gmail.com','1990-07-23 21:40:05.036000','F','VEN','Daenerys','X1234567L','Espa\u00f1a','$2a$10$nuf0DZeajRg0YOxczu/ITeBRiXUXZP8wHmAPU1iBpgFj5BN0aaSvy','Oviedo','Asturias','ROLE_USER','NIE')
+INSERT INTO USER VALUES(5,'Targaryen','Calle falsa 13','33002','tfgpruebas2024@gmail.com','1990-07-23 14:46:52.466000','F','VEN','Daenerys','X1234567L','Espa\u00f1a','$2a$10$YsedkRzmpRTRRpTOtQi1gONJm6hah8bqpTKFxOAABS4j0tG8fsSiC','Oviedo','Asturias','ROLE_USER','NIE')
 COMMIT
-INSERT INTO USER VALUES(6,'Lannister','Calle falsa 127','33206','tfgpruebas2024@gmail.com','1991-06-05 21:40:05.036000','M','ESP','Tyrion','11111111H','Espa\u00f1a','$2a$10$pdhSXELAC.ocgrGKglbF7.j6PSgFw/fF9OR1DnQD4z1ewMGnLpAy.','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(6,'Lannister','Calle falsa 127','33206','tfgpruebas2024@gmail.com','1991-06-05 14:46:52.466000','M','ESP','Tyrion','11111111H','Espa\u00f1a','$2a$10$xqiq8uegY7.lF5/6oKMghOUNcR7bmRVKTcz4Zdsn3HqIlaCd3OgYi','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(7,'Stark','Calle falsa 36','33206','tfgpruebas2024@gmail.com','2005-04-21 21:40:05.036000','F','ESP','Arya','11111113C','Espa\u00f1a','$2a$10$PhdP.SZcImFwTlxW3bO9nOVzBVvPgKuKojitjLSC9sndAwE0SXDY2','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(7,'Stark','Calle falsa 36','33206','tfgpruebas2024@gmail.com','2005-04-21 14:46:52.466000','F','ESP','Arya','11111113C','Espa\u00f1a','$2a$10$LePZ9YD8HnTD5HZ6lQX5/OzQKlDq8Ulk4dW5svtWGQqC0obaYHYS.','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(8,'Nieve','Calle falsa 123','33206','tfgpruebas2024@gmail.com','1991-06-05 21:40:05.036000','M','ESP','Jon','22222222J','Espa\u00f1a','$2a$10$b0.VBxuW1hjnuZlj/0a3r.CUQg49CrChJPGhiIXbUmXWaih5seIt.','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(8,'Nieve','Calle falsa 123','33206','tfgpruebas2024@gmail.com','1991-06-05 14:46:52.466000','M','ESP','Jon','22222222J','Espa\u00f1a','$2a$10$10g0g6XeErBZXmU4.iGHLOazj4WRNr9PGULI3mf/k2vGlUrFkc8i.','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(9,'Stark','Calle falsa 25','33206','tfgpruebas2024@gmail.com','2004-01-15 21:40:05.036000','F','ESP','Sansa','55555555K','Espa\u00f1a','$2a$10$nNabySFojpSp1of2Uuj52OXdbBFAt6itzx1EjRmLSFI9yv.CyNhX2','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(9,'Stark','Calle falsa 25','33206','tfgpruebas2024@gmail.com','2004-01-15 14:46:52.466000','F','ESP','Sansa','55555555K','Espa\u00f1a','$2a$10$7ciK8iOfYGWTCWTYixmZIeRldNXXPJ9uopcISqIa5FYdha32YNOv6','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(10,'Stark','Calle falsa 25','33206','tfgpruebas2024@gmail.com','2005-07-18 21:40:05.036000','M','ESP','Bran','11111114K','Espa\u00f1a','$2a$10$msMvDRC9MvJXiomCaEL6NONCrK5UZN2dThodWcWksnjZNFxsJP4KW','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(10,'Stark','Calle falsa 25','33206','tfgpruebas2024@gmail.com','2005-07-18 14:46:52.466000','M','ESP','Bran','11111114K','Espa\u00f1a','$2a$10$xa0JtOGuYQsVxFAcOri5Z.73hDTxGbzfxij50uKQNZF9b94Qt4Rbi','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(11,'Stark','Calle falsa 1','33002','tfgpruebas2024@gmail.com','1986-11-14 21:40:05.036000','M','ESP','Eddard','11111115E','Espa\u00f1a','$2a$10$YKyPiGps7FCigN.ehpBJ1e4rVYbHk0vPkSz5wswEICc9nBgXMrQyG','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(11,'Stark','Calle falsa 1','33002','tfgpruebas2024@gmail.com','1986-11-14 14:46:52.466000','M','ESP','Eddard','11111115E','Espa\u00f1a','$2a$10$G6e7arbtyF5A/GtBrFrYNOOnM2UgrDT/fQYDdME/g8n1L.gG9e3te','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(12,'Tarly','Calle falsa 1','33002','tfgpruebas2024@gmail.com','1976-09-21 21:40:05.036000','M','ESP','Samwell','11111116T','Espa\u00f1a','$2a$10$R46QUfiAPo2mNhv3qEU9G.Xcm1xvjdUtNlBrmFtmsTmQpSVmMGlue','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(12,'Tarly','Calle falsa 1','33002','tfgpruebas2024@gmail.com','1976-09-21 14:46:52.466000','M','ESP','Samwell','11111116T','Espa\u00f1a','$2a$10$U7PLPnaAL8X2DMssw3eGwuUP7UO4UIkjcROgWqhAEgPimM/c.7ISS','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(13,'Greyjoy','Calle falsa 127','33002','tfgpruebas2024@gmail.com','1990-12-26 21:40:05.036000','M','ESP','Theon','66666666Q','Espa\u00f1a','$2a$10$alXV/ninAT5d5iCE9P65L.B5/aBzS089ewo9U.zzZeP9GZYpig76O','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(13,'Greyjoy','Calle falsa 127','33002','tfgpruebas2024@gmail.com','1990-12-26 14:46:52.466000','M','ESP','Theon','66666666Q','Espa\u00f1a','$2a$10$VWlTyzQDgiomBbVIcFzjBuMZpevLU..41PGKwfy2/LkfJ/ksCpcr2','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(14,'Baratheon','Calle falsa 32','33403','tfgpruebas2024@gmail.com','1992-12-16 21:40:05.036000','M','ESP','Joffrey','44444445G','Espa\u00f1a','$2a$10$cd15h2ZW3TAqHZt6ntos7umgbf33QBcUx/QZTTKNIXIHCAgdtLUTC','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(14,'Baratheon','Calle falsa 32','33403','tfgpruebas2024@gmail.com','1992-12-16 14:46:52.466000','M','ESP','Joffrey','44444445G','Espa\u00f1a','$2a$10$4KbpdQd1LHQ5eeBtpoqsZ.YtBBbwWbBciYSl/q3x.xTymvtGsjR.u','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(15,'de Tarth','Calle falsa 11','33002','tfgpruebas2024@gmail.com','1989-05-01 21:40:05.036000','F','ESP','Brienne','54444446L','Espa\u00f1a','$2a$10$2ZCnvU87zzU8WkB7kN8UjOnDL1bo0FcU7Fmxikxgus1Oc9npT2BJW','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(15,'de Tarth','Calle falsa 11','33002','tfgpruebas2024@gmail.com','1989-05-01 14:46:52.466000','F','ESP','Brienne','54444446L','Espa\u00f1a','$2a$10$6faJSqW4HsXa2pNYY76b1e4flox11gio5T3Xff3tGeUP1P.2hT5pm','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(16,'Baelish','Calle falsa 173','33403','tfgpruebas2024@gmail.com','1992-06-12 21:40:05.036000','NB','ESP','Pethyr','44444444A','Espa\u00f1a','$2a$10$6yJeONLb0j/pg6WV6JOMOeCDQlpouE85HEViSwyvhEP0Jff4OsPma','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(16,'Baelish','Calle falsa 173','33403','tfgpruebas2024@gmail.com','1992-06-12 14:46:52.466000','NB','ESP','Pethyr','44444444A','Espa\u00f1a','$2a$10$WOakZAXAWMr1V/FGLjJUXuOJrFBtiFJ1oAqHc2upPXT9fzlzWjSFe','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(17,'Mormont','Calle falsa 55','33403','tfgpruebas2024@gmail.com','1959-01-14 21:40:05.036000','M','ESP','Jorah','77777777B','Espa\u00f1a','$2a$10$7j2g7eF91Dlc.9RTo3yhIOWCIHD2W72RTG7pD7mIvV2aC5Fw.Axp2','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(17,'Mormont','Calle falsa 55','33403','tfgpruebas2024@gmail.com','1959-01-14 14:46:52.466000','M','ESP','Jorah','77777777B','Espa\u00f1a','$2a$10$LCs.4UVORv/9epsBsOBn4.FrK2PdbE/sBffnxxfwFEHGlaXWCCh2a','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(18,'Stark','Calle falsa 98','33403','tfgpruebas2024@gmail.com','1993-10-08 21:40:05.036000','M','ESP','Robb','56444447D','Espa\u00f1a','$2a$10$oNCCrw9jMeUDDDj2bf2fV.OhEwRFeDAo4hvStHUz.aa0naEf6s3..','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(18,'Stark','Calle falsa 98','33403','tfgpruebas2024@gmail.com','1993-10-08 14:46:52.466000','M','ESP','Robb','56444447D','Espa\u00f1a','$2a$10$ZLQfTwcWs49yrT0.02u.Z.yjetXL5M5wgOozwqXjhfhDHhcRO8I6i','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(19,'Seaworth','Calle falsa 111','33002','tfgpruebas2024@gmail.com','1960-12-10 21:40:05.036000','M','ESP','Davos','66444447T','Espa\u00f1a','$2a$10$Y.zaLZGUp6ExOAgJSvm3Z.FKVd7ptnaKuPiPko.l/LhnWFchWYoZu','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(19,'Seaworth','Calle falsa 111','33002','tfgpruebas2024@gmail.com','1960-12-10 14:46:52.466000','M','ESP','Davos','66444447T','Espa\u00f1a','$2a$10$newdIiKBwWfDGJtRJEdKCOcxm6sl9uH5tFZWShvGJasiHUp0q8lJ6','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(20,'Clegane','Calle falsa 46','33206','tfgpruebas2024@gmail.com','1979-07-23 21:40:05.036000','M','ESP','Sandor','75644447T','Espa\u00f1a','$2a$10$lBNuvEjnkYx34ZQ2O7NaLOp5iMg54g.uZTZrFcZ2qGi8lTMgw6f7u','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(20,'Clegane','Calle falsa 46','33206','tfgpruebas2024@gmail.com','1979-07-23 14:46:52.466000','M','ESP','Sandor','75644447T','Espa\u00f1a','$2a$10$../deG0lxwd/EIxF91KjveZy/yQ3AxRVwTqQVlznDcD1H38nOIl1O','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(21,'Tully','Calle falsa 63','33206','tfgpruebas2024@gmail.com','1975-08-24 21:40:05.036000','F','ESP','Catelyn','99999999R','Espa\u00f1a','$2a$10$DgCBVjY1rRdDE15nRRdGguKid4ij2NhWiOLp2BS/YXlUxMNpFfB.S','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(21,'Tully','Calle falsa 63','33206','tfgpruebas2024@gmail.com','1975-08-24 14:46:52.466000','F','ESP','Catelyn','99999999R','Espa\u00f1a','$2a$10$NGrCa6dVivYGXvdJscxZ3uVtRG4aYwfV6p/iJOijqux8Ra85dfWOS','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(22,'Greyjoy','Calle falsa 5','33002','tfgpruebas2024@gmail.com','2002-04-18 21:40:05.036000','F','ESP','Yara','75644487V','Espa\u00f1a','$2a$10$PuQHONrh37c6oCrhFQUdbuM3fdFWzMWRL1tQlOgYXj1V37aRv1Wp.','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(22,'Greyjoy','Calle falsa 5','33002','tfgpruebas2024@gmail.com','2002-04-18 14:46:52.466000','F','ESP','Yara','75644487V','Espa\u00f1a','$2a$10$fss4oLOCFmlnOonyWqozYOQD93F.NOuRV20gMrr68/OWqLRzzm5Yq','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(23,'Tyrell','Calle falsa 10','33403','tfgpruebas2024@gmail.com','2000-06-08 21:40:05.036000','F','ESP','Margaery','53555221C','Espa\u00f1a','$2a$10$L4k56EuDPPDNh66q7/pxY.LueyGhAmNbyYCK7CD.9MaZAIOdvFKee','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(23,'Tyrell','Calle falsa 10','33403','tfgpruebas2024@gmail.com','2000-06-08 14:46:52.466000','F','ESP','Margaery','53555221C','Espa\u00f1a','$2a$10$NqWuvEFoKQHTvE5/F6pqbOrj1/Ggo24U95lqHVoUxkpLOlWEgolam','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(24,'Baratheon','Calle falsa 101','33403','tfgpruebas2024@gmail.com','1961-11-28 21:40:05.036000','M','ESP','Stannis','10818562Y','Espa\u00f1a','$2a$10$z6yQKZBK5wE0Fis35UXj.uE35pSvGdhgYuDUwzJKZZCiFStX.Z8d2','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(24,'Baratheon','Calle falsa 101','33403','tfgpruebas2024@gmail.com','1961-11-28 14:46:52.466000','M','ESP','Stannis','10818562Y','Espa\u00f1a','$2a$10$rJYeR4ar38Os3ykW2p2goOj/JlcOiMGv5hrxXrHqDyPIBfsTmz6lS','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(25,'Tarly','Calle falsa 16','33002','tfgpruebas2024@gmail.com','1996-09-14 21:40:05.036000','M','ESP','Dickon','71552365D','Espa\u00f1a','$2a$10$mxJsfBZyNLWCyfq5ALCoV.ovCpO/Ij0rpAvIrNyBBsheIlY.Y8HuS','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(25,'Tarly','Calle falsa 16','33002','tfgpruebas2024@gmail.com','1996-09-14 14:46:52.466000','M','ESP','Dickon','71552365D','Espa\u00f1a','$2a$10$iUEjf6Z/i2OMskCJhWpkE.VSeby0rX1idlXfAg9MFtT4XCUaMXrLm','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(26,'Arryn','Calle falsa 7','33206','tfgpruebas2024@gmail.com','1969-01-12 21:40:05.036000','F','ESP','Lysa','10818566Y','Espa\u00f1a','$2a$10$9df.SLvkE7hwbc7QBGwo3.pKVIlSN43KJdRA79frBAvlA65v4oJ56','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(26,'Arryn','Calle falsa 7','33206','tfgpruebas2024@gmail.com','1969-01-12 14:46:52.466000','F','ESP','Lysa','10818566Y','Espa\u00f1a','$2a$10$L3gSv6rYmE3SXS9PNWnKDOXlsJJuhrPLzesg4AoPBYWUESqlVNgbO','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(27,'Baratheon','Calle falsa 19','33206','tfgpruebas2024@gmail.com','1959-08-07 21:40:05.036000','M','ESP','Robert','53456852E','Espa\u00f1a','$2a$10$NlTaVn2j65ygBT.KJEVE2OU69fmHpKx.FrlQHkPANiXDWE4AVRBue','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(27,'Baratheon','Calle falsa 19','33206','tfgpruebas2024@gmail.com','1959-08-07 14:46:52.466000','M','ESP','Robert','53456852E','Espa\u00f1a','$2a$10$jY6brgnBqxEVMYm74oEKieWohVQ3nfRCDTsOFxMBmSrNTODyZvpKO','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(28,'Targaryen','Calle falsa 22','33002','tfgpruebas2024@gmail.com','1960-02-15 21:40:05.036000','M','ESP','Viserys','11235647D','Espa\u00f1a','$2a$10$bW8ZFXmfw61hKsFdiPs/y.XwX4.mZ9b.Fj.IjJumPyz7uHlp99psO','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(28,'Targaryen','Calle falsa 22','33002','tfgpruebas2024@gmail.com','1960-02-15 14:46:52.466000','M','ESP','Viserys','11235647D','Espa\u00f1a','$2a$10$AU39toP1W1jaDMNklQQFDO6Pv8hLcfVShwxeWcYPM8Pi4GiLIT3Ju','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(29,'Drogo','Calle falsa 6','33206','tfgpruebas2024@gmail.com','1965-05-17 21:40:05.036000','M','ESP','Khal','10854236F','Espa\u00f1a','$2a$10$6aF3.eMGNboq73kYI1e2z.ClLbLtk4DdrJPsbvc45atkOj4G.WtTC','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(29,'Drogo','Calle falsa 6','33206','tfgpruebas2024@gmail.com','1965-05-17 14:46:52.466000','M','ESP','Khal','10854236F','Espa\u00f1a','$2a$10$UFS7MiQ6IlLX3BsB.G7qrelQzuIUQQWtS0YyhxLIdiUMdhj7dIiW.','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(30,'Lannister','Calle falsa 21','33206','tfgpruebas2024@gmail.com','1959-11-21 21:40:05.036000','M','ESP','Tywin','10445998L','Espa\u00f1a','$2a$10$s45ygPSZalEXxGaQRp.qSOQhVdK5ND4OUman6w4uhfpRLu1cim0Ha','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(30,'Lannister','Calle falsa 21','33206','tfgpruebas2024@gmail.com','1959-11-21 14:46:52.466000','M','ESP','Tywin','10445998L','Espa\u00f1a','$2a$10$GA9p1YQ2BhVX4MKoWSYn7e9jREI3uYMTrikEqeVMGMP/vTaT4ZBay','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(31,'Maegyr','Calle falsa 3','33403','tfgpruebas2024@gmail.com','1988-11-01 21:40:05.036000','F','ESP','Talisa','71256874E','Espa\u00f1a','$2a$10$TPZGtMY0BY6mdQhWyn4cOeK4x7IxLc/GVpjYO03Uomh/xhsQQCU1q','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(31,'Maegyr','Calle falsa 3','33403','tfgpruebas2024@gmail.com','1988-11-01 14:46:52.466000','F','ESP','Talisa','71256874E','Espa\u00f1a','$2a$10$qOexLS8TRAILiv.ww1XboOqAbtP36Oq9vaGLY87sLbeGsD0O52ZQi','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(32,'Baratheon','Calle falsa 102','33002','tfgpruebas2024@gmail.com','1989-03-28 21:40:05.036000','M','ESP','Renly','10553268V','Espa\u00f1a','$2a$10$TVA.01ulaZIxCu0OjX3uTOF1DuRu/l0mZgNhY9cpE9Z5Z0/buGYZi','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(32,'Baratheon','Calle falsa 102','33002','tfgpruebas2024@gmail.com','1989-03-28 14:46:52.466000','M','ESP','Renly','10553268V','Espa\u00f1a','$2a$10$f6H22lmlU2js/H6/lQcRduhka3n3wS1vdB6ThygIHHY8730Z4Wuz.','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(33,'Mormont','Calle falsa 73','33206','tfgpruebas2024@gmail.com','1957-10-20 21:40:05.036000','M','ESP','Jeor','09546879Q','Espa\u00f1a','$2a$10$u4Et1jTfVBFBINrzBpPmFecS5/0mR9uryAnaT8RdaYgHmem16t3hG','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(33,'Mormont','Calle falsa 73','33206','tfgpruebas2024@gmail.com','1957-10-20 14:46:52.466000','M','ESP','Jeor','09546879Q','Espa\u00f1a','$2a$10$V3qj2In1C.Fz2an.Jf.Dde5sjNsq6xjOPR4BkJr58SXXCfdv5dayG','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(34,'Martell','Calle falsa 12','33002','tfgpruebas2024@gmail.com','1964-01-02 21:40:05.036000','M','ESP','Oberyn','11058654R','Espa\u00f1a','$2a$10$7aEQLYZaaSQo1wE9dpyc0eSFYl.YlSDEskT8zL.NR4Idomwkyu.em','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(34,'Martell','Calle falsa 12','33002','tfgpruebas2024@gmail.com','1964-01-02 14:46:52.466000','M','ESP','Oberyn','11058654R','Espa\u00f1a','$2a$10$o6BKZEtqRvQ/aS9oBhH.E.jbYj6zJjetthCAfI1QHPbNzYZkcDMp6','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(35,'Greyjoy','Calle falsa 28','33403','tfgpruebas2024@gmail.com','1985-02-02 21:40:05.036000','M','ESP','Euron','71589632Q','Espa\u00f1a','$2a$10$l6eiJZIr6ohzybGY6frSwO6Wx7jH4daI4/gDzXy5.8EYz6TA3IfCC','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(35,'Greyjoy','Calle falsa 28','33403','tfgpruebas2024@gmail.com','1985-02-02 14:46:52.466000','M','ESP','Euron','71589632Q','Espa\u00f1a','$2a$10$xJ717d6m.hrM.LlM8YMXtOZGHa2MGdSTzTbq.MXC4avH4JhAitGWi','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(36,'Tarly','Calle falsa 112','33002','tfgpruebas2024@gmail.com','1959-02-27 21:40:05.036000','M','ESP','Randyll','53547621X','Espa\u00f1a','$2a$10$nzccGmuulKJHgcsT9Nhl1.8IiDLSj3DJ.mLueeR17LQQ4vIWGgy56','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(36,'Tarly','Calle falsa 112','33002','tfgpruebas2024@gmail.com','1959-02-27 14:46:52.466000','M','ESP','Randyll','53547621X','Espa\u00f1a','$2a$10$ospNQezXiwqFA8EFT2t5PeN8p1kBErLhlbSFtnhNy.TrwZ90MCNqK','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(37,'Payne','Calle falsa 25','33206','tfgpruebas2024@gmail.com','1985-09-21 21:40:05.036000','M','ESP','Podrick','10523888P','Espa\u00f1a','$2a$10$edCtVbl7xzGIbA4qPJFSeOxOAUOl/d2xDPN2lnuJnIcRqHmc.SFJO','Gij\u00f3n','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(37,'Payne','Calle falsa 25','33206','tfgpruebas2024@gmail.com','1985-09-21 14:46:52.466000','M','ESP','Podrick','10523888P','Espa\u00f1a','$2a$10$OH8Yj9zJEdW3RB.TvBz.q.G/podIfvYOWWB1QW38VK91X0O0fdm0y','Gij\u00f3n','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(38,'Karstark','Calle falsa 16','33002','tfgpruebas2024@gmail.com','1994-07-28 21:40:05.036000','F','ESP','Alys','53546221J','Espa\u00f1a','$2a$10$0eLfFlyBaWSgZNILF5pNjekF6eB9J505WIZAiipqgcgsxEB.XqQQG','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(38,'Karstark','Calle falsa 16','33002','tfgpruebas2024@gmail.com','1994-07-28 14:46:52.466000','F','ESP','Alys','53546221J','Espa\u00f1a','$2a$10$y.BLbqUJdlg3QLsYZhCHreZAetiiV0goJV5kj5YtDJ8BdDe1xjcAu','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(39,'Baratheon','Calle falsa 51','33403','tfgpruebas2024@gmail.com','1969-12-30 21:40:05.036000','F','ESP','Selyse','10222336D','Espa\u00f1a','$2a$10$mm.uIPTrQzjZiKaKHNuNUOEBs9tPPCZueNMz2hoVYoIBNFeFFpFvK','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(39,'Baratheon','Calle falsa 51','33403','tfgpruebas2024@gmail.com','1969-12-30 14:46:52.466000','F','ESP','Selyse','10222336D','Espa\u00f1a','$2a$10$xXq/1SPl1aF.41Mazhme9.2tWQlP5J8aj3445Opkh6JHQQYzEeZDC','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(40,'Sand','Calle falsa 168','33002','tfgpruebas2024@gmail.com','1997-01-31 21:40:05.036000','F','ESP','Obara','53555662R','Espa\u00f1a','$2a$10$iglwt3p6.wDkQKZ.fw8i1eaJkVV0LdWO480gQHIQKTqbstwC8acnS','Oviedo','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(40,'Sand','Calle falsa 168','33002','tfgpruebas2024@gmail.com','1997-01-31 14:46:52.466000','F','ESP','Obara','53555662R','Espa\u00f1a','$2a$10$u9hogbNJcSxH6BtpRQ.59.pa.gzg75gAcyxNmdSksAaLywsqp6zAW','Oviedo','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(41,'Mopatis','Calle falsa 27','33403','tfgpruebas2024@gmail.com','1962-01-08 21:40:05.036000','M','ESP','Illyrio','10886224W','Espa\u00f1a','$2a$10$3pVef4g8izayschU/lFxqu2f8vmbYv5NR/fg2h/WxY/20n.hA5zq.','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(41,'Mopatis','Calle falsa 27','33403','tfgpruebas2024@gmail.com','1962-01-08 14:46:52.466000','M','ESP','Illyrio','10886224W','Espa\u00f1a','$2a$10$ncj6V003ovqvs1X2zs/7hulwCfBf8L.znnACu.DhDWibxacqwnpLu','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(42,'Baratheon','Calle falsa 42','33403','tfgpruebas2024@gmail.com','2002-07-18 21:40:05.036000','M','ESP','Tommen','53212323Y','Espa\u00f1a','$2a$10$1FKDf8hpuQOsDvP8TOw8aO.g00Tl3nETQNIiVJ0zQUCHBZyS2GYA6','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(42,'Baratheon','Calle falsa 42','33403','tfgpruebas2024@gmail.com','2002-07-18 14:46:52.466000','M','ESP','Tommen','53212323Y','Espa\u00f1a','$2a$10$Aj93hQDb1wvUiXfBFD98o.HibenrFRiG/ForzmeY0unIKq6zxyTCK','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(43,'Karstark','Calle falsa 142','33403','tfgpruebas2024@gmail.com','1976-08-24 21:40:05.036000','M','ESP','Harald','11456987C','Espa\u00f1a','$2a$10$1k2dl0BaKL0n8tpIH.55jeqb0G71hqE78gzpYcgCtajoo3ERjYywm','Avil\u00e9s','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(43,'Karstark','Calle falsa 142','33403','tfgpruebas2024@gmail.com','1976-08-24 14:46:52.466000','M','ESP','Harald','11456987C','Espa\u00f1a','$2a$10$07Wflmko4yR56tRfoGtk/OMv/IxYLXp7peocDJ6gH3t4JIhb5i0hG','Avil\u00e9s','Asturias','ROLE_USER','DNI')
 COMMIT
-INSERT INTO USER VALUES(44,'Bryant','Calle falsa 321','33686','dariosuarez_@hotmail.com','2000-03-03 21:40:05.036000','F','ESP','Kobe','53548918S','Espa\u00f1a','$2a$10$1xZi2zcrDZRXzidzRUES1uSIwXS4RKKgAUERLhD49bTypde70JZ5i','Serrapio','Asturias','ROLE_USER','DNI')
+INSERT INTO USER VALUES(44,'Bryant','Calle falsa 321','33686','dariosuarez_@hotmail.com','2000-03-03 14:46:52.466000','F','ESP','Kobe','53548918S','Espa\u00f1a','$2a$10$hsdWhDKQqv615poffOWZVu9dDC7bc7TyVbwo70BpdL9z0wUcEGMFC','Serrapio','Asturias','ROLE_USER','DNI')
 COMMIT
 DISCONNECT
-/*C81*/SET SCHEMA PUBLIC
+/*C150*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C80*/SET SCHEMA PUBLIC
+/*C149*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C79*/SET SCHEMA PUBLIC
+/*C148*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C78*/SET SCHEMA PUBLIC
+/*C147*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C77*/SET SCHEMA PUBLIC
+/*C146*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C76*/SET SCHEMA PUBLIC
+/*C145*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C75*/SET SCHEMA PUBLIC
+/*C144*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C74*/SET SCHEMA PUBLIC
+/*C143*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C73*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C72*/SET SCHEMA PUBLIC
+/*C142*/SET SCHEMA PUBLIC
 DISCONNECT

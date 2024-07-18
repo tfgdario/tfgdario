@@ -194,7 +194,7 @@ public class InsertSampleDataService {
 		user = new User();
 
 		user.setNumDocumento("53548918L");
-		user.setEmail("dariosuarez_@hotmail.com");
+		user.setEmail("tfgpruebas2024@gmail.com");
 		user.setNacionalidad("ESP");
 		user.setTipoDocumento("DNI");
 		user.setCalle("Calle falsa 321");
